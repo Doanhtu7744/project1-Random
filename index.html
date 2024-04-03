@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Random Quote Machine</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="css/1.css">
+</head>
+<body>
+
+<div id="quote-box">
+    <p id="text"></p>
+    <p id="author"></p>
+    
+    <button class="btn-primary" id="new-quote">New Quote</button>
+</div>
+
+<style>
+  body {
+            background-color: #00FF00; /* Màu nền cho body */
+        }
+  #text,
+  #author {
+      font-size: 50px; 
+      text-align: center;
+      justify-content: center;
+  }
+  #new-quote-container {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+}
+</style>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    function getRandomQuote() {
+        const quotes = [
+            {
+              text: "A 1",
+              author: "B 1"
+            },
+            {
+              text: "A 2",
+              author: "B 2"
+            },
+            {
+              text: "A 3",
+              author: "B 3"
+            }
+        ];
+
+        const randomIndex = Math.floor(Math.random() * quotes.length);//lưu trữ 1 số nguyên ngẫu nhiên
+        const randomQuote = quotes[randomIndex];//đưa ra vị trí ngẫu nhiên của số nguyên ngẫu nhiên
+
+        document.getElementById("text").textContent = randomQuote.text;//lấy tham chiếu của phần tử
+        document.getElementById("author").textContent = "-" + randomQuote.author;
+    }
+    getRandomQuote();
+
+    document.getElementById("new-quote").addEventListener("click", function() {
+        getRandomQuote();
+    });
+});
+</script>
+
+</body>
+</html>
